@@ -43,3 +43,24 @@ public:
     }
 };
 ```
+## Solution 2
+```cpp
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& nums) {
+    int n = nums.size();
+        vector<int> ret(n);
+        int left = 0, right = n-1, x;
+        for(int i=n-1; i>=0; i--)
+        {
+            if(abs(nums[right])>abs(nums[left]))
+                x = nums[right--];
+                
+            else 
+                x = nums[left++];
+            ret[i] = x*x;
+        }
+        return ret;
+    }
+};
+```
